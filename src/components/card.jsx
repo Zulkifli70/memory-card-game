@@ -91,7 +91,7 @@ export default function Card() {
           {pokemon.map((pokemonData) => (
             <div
               key={pokemonData.id}
-              className="border-2 w-40 h-52 flex flex-col cursor-pointer hover:shadow-lg transition-all duration-200"
+              className="border-2 w-40 h-52 flex flex-col rounded-md overflow-hidden cursor-pointer hover:shadow-lg transition-all duration-200"
               onClick={() => handleCardClick(pokemonData)}
             >
               <div className="bg-gradient-to-br from-blue-50 to-indigo-100 p-4 flex justify-center items-center flex-1">
