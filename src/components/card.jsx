@@ -70,18 +70,18 @@ export default function Card() {
         <div className="mb-6 text-center">
           <div className="flex gap-8 justify-center items-center mb-5">
             <div className="bg-blue-100 px-4 py-2 rounded-lg">
-              <p className="text-xl text-gray-800 font-bold tracking-[.3em] font-pokemon mb-4">
+              <p className="text-2xl text-gray-800 font-extrabold tracking-[.3em] font-bubble mb-4">
                 Current Score
               </p>
-              <p className="text-2xl font-bold text-blue-600 font-pokemon">
+              <p className="text-4xl font-bold text-blue-600 font-pokemon">
                 {score}
               </p>
             </div>
             <div className="bg-green-100 px-4 py-2 rounded-lg">
-              <p className="text-xl text-gray-800 font-bold tracking-[.3em] font-pokemon mb-4">
+              <p className="text-2xl text-gray-800 font-extrabold tracking-[.3em] font-bubble mb-4">
                 Best Score
               </p>
-              <p className="text-2xl font-bold text-green-600 font-pokemon">
+              <p className="text-4xl font-bold text-green-600 font-pokemon">
                 {bestScore}
               </p>
             </div>
