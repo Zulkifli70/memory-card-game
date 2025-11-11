@@ -68,21 +68,29 @@ export default function Card() {
       <div className="flex flex-col items-center">
         {/* Score Display */}
         <div className="mb-6 text-center">
-          <div className="flex gap-8 justify-center items-center">
+          <div className="flex gap-8 justify-center items-center mb-5">
             <div className="bg-blue-100 px-4 py-2 rounded-lg">
-              <p className="text-sm text-gray-600">Current Score</p>
-              <p className="text-2xl font-bold text-blue-600">{score}</p>
+              <p className="text-sm text-gray-800 font-bold tracking-[.3em] font-pokemon">
+                Current Score
+              </p>
+              <p className="text-2xl font-bold text-blue-600 font-pokemon">
+                {score}
+              </p>
             </div>
             <div className="bg-green-100 px-4 py-2 rounded-lg">
-              <p className="text-sm text-gray-600">Best Score</p>
-              <p className="text-2xl font-bold text-green-600">{bestScore}</p>
+              <p className="text-sm text-gray-800 font-bold tracking-[.3em] font-pokemon">
+                Best Score
+              </p>
+              <p className="text-2xl font-bold text-green-600 font-pokemon">
+                {bestScore}
+              </p>
             </div>
           </div>
-          <p className="text-sm text-gray-500 mt-2">
+          <p className="text-sm text-gray-500 mt-2 font-bubble">
             Click Pokemon that you didn't click before!
           </p>
-          <p className="text-sm text-gray-500 mt-2">
-            If you lose, the pokemon will be randomized
+          <p className="text-sm text-gray-500 mt-2 font-bubble">
+            If you lose, the pokemon will be randomized automatically
           </p>
         </div>
 
@@ -102,7 +110,7 @@ export default function Card() {
                 />
               </div>
               <div className="text-center p-2 bg-white">
-                <p className="text-sm font-medium capitalize">
+                <p className="text-sm font-medium capitalize font-bubble">
                   {pokemonData.name}
                 </p>
               </div>
@@ -114,16 +122,16 @@ export default function Card() {
         <div className="flex gap-4">
           <button
             onClick={resetGame}
-            className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
+            className="px-4 text-2xl py-2 bg-yellow-500 text-zinc-900 rounded hover:bg-yellow-600 transition-colors font-bubble"
           >
             New Game
           </button>
         </div>
 
         {/* Game Stats */}
-        <div className="mt-4 text-center text-sm text-gray-600 mb-10">
+        <div className="mt-4 text-center text-sm text-gray-600 mb-10 font-bubble">
           <p>
-            Clicked Pokemon: {clickedPokemon.length} / {pokemon.length}
+            Clicked unique pokemon: {clickedPokemon.length} / {pokemon.length}
           </p>
         </div>
         <h1>Code By Zulkifli Firdausi</h1>
