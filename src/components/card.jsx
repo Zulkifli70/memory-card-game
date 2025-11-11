@@ -30,7 +30,7 @@ export default function Card() {
         <div className="fixed inset-0 flex items-center justify-center z-50 backdrop-blur-xs">
           <div className="bg-white rounded-lg p-8 max-w-md mx-4 text-center shadow-2xl">
             <div className="mb-4">
-              <h2 className="text-2xl font-bold text-green-600 mb-2">
+              <h2 className="text-xl font-bold text-green-600 mb-2">
                 Congrats!
               </h2>
               <p className="text-gray-600">You conquered it!</p>
@@ -70,7 +70,7 @@ export default function Card() {
         <div className="mb-6 text-center">
           <div className="flex gap-8 justify-center items-center mb-5">
             <div className="bg-blue-100 px-4 py-2 rounded-lg">
-              <p className="text-sm text-gray-800 font-bold tracking-[.3em] font-pokemon">
+              <p className="text-xl text-gray-800 font-bold tracking-[.3em] font-pokemon mb-4">
                 Current Score
               </p>
               <p className="text-2xl font-bold text-blue-600 font-pokemon">
@@ -78,7 +78,7 @@ export default function Card() {
               </p>
             </div>
             <div className="bg-green-100 px-4 py-2 rounded-lg">
-              <p className="text-sm text-gray-800 font-bold tracking-[.3em] font-pokemon">
+              <p className="text-xl text-gray-800 font-bold tracking-[.3em] font-pokemon mb-4">
                 Best Score
               </p>
               <p className="text-2xl font-bold text-green-600 font-pokemon">
@@ -86,10 +86,10 @@ export default function Card() {
               </p>
             </div>
           </div>
-          <p className="text-sm text-gray-500 mt-2 font-bubble">
+          <p className="text-lg text-gray-500 mt-2 font-bubble">
             Click Pokemon that you didn't click before!
           </p>
-          <p className="text-sm text-gray-500 mt-2 font-bubble">
+          <p className="text-lg text-gray-500 mt-2 font-bubble">
             If you lose, the pokemon will be randomized automatically
           </p>
         </div>
@@ -110,7 +110,7 @@ export default function Card() {
                 />
               </div>
               <div className="text-center p-2 bg-white">
-                <p className="text-sm font-medium capitalize font-bubble">
+                <p className="text-lg font-medium capitalize font-bubble">
                   {pokemonData.name}
                 </p>
               </div>
@@ -129,12 +129,14 @@ export default function Card() {
         </div>
 
         {/* Game Stats */}
-        <div className="mt-4 text-center text-sm text-gray-600 mb-10 font-bubble">
+        <div className="mt-4 text-center text-lg text-gray-600 mb-10 font-bubble">
           <p>
             Clicked unique pokemon: {clickedPokemon.length} / {pokemon.length}
           </p>
         </div>
-        <h1>Code By Zulkifli Firdausi</h1>
+        <h1 className="font-pokemon font-bold text-2xl">
+          Code By Zulkifli Firdausi
+        </h1>
       </div>
     </>
   );
