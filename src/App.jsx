@@ -3,6 +3,7 @@ import "./App.css";
 import Navbar from "./components/navbar";
 import Card from "./components/card";
 import DifficultySelector from "./components/DifficultySelector";
+import { Footer } from "./components/Footer";
 
 function App() {
   const [difficulty, setDifficulty] = useState(null);
@@ -19,7 +20,7 @@ function App() {
 
   return (
     <>
-      <div>
+      <div className="flex flex-col justify-between h-full">
         <Navbar />
         {!difficulty ? (
           <DifficultySelector onSelectDifficulty={handleDifficultySelect} />
@@ -30,6 +31,7 @@ function App() {
             onBackToMenu={handleBackToMenu}
           />
         )}
+        <Footer />
       </div>
     </>
   );

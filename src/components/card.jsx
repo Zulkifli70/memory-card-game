@@ -208,9 +208,6 @@ export default function Card({ pokemonCount, difficulty, onBackToMenu }) {
             </button>
           </div>
           {/* Game Stats */}
-          <h1 className="mt-10 text-2xl font-bold font-pokemon">
-            Code By Zulkifli Firdausi
-          </h1>
         </div>
       </div>
     </>
