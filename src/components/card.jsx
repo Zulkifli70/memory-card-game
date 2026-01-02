@@ -2,7 +2,7 @@ import React from "react";
 import { usePokemonGame } from "../hooks/usePokemonGame";
 import "../App.css";
 
-export default function Card() {
+export default function Card({ pokemonCount, difficulty, onBackToMenu }) {
   const {
     pokemon,
     dataIsLoaded,
@@ -13,40 +13,45 @@ export default function Card() {
     showLoseModal,
     handleCardClick,
     resetGame,
-    closeWinModal,
-    closeLoseModal,
-  } = usePokemonGame(10);
+  } = usePokemonGame(pokemonCount);
 
   if (!dataIsLoaded) {
     return (
-      <div className="flex flex-col items-center justify-center h-4/6">
-        <h1 className="text-xl mb-7 font-pokemon">
-          Catching some pokemons....
-        </h1>
-        <img src="/pokemons.gif" alt="pokemon" />
+      <div className="flex items-center justify-center h-64">
+        <h1 className="text-xl">Please wait some time....</h1>
       </div>
     );
   }
+
+  // Menentukan jumlah kolom berdasarkan jumlah pokemon
+  const getGridCols = () => {
+    if (pokemonCount <= 5) return "grid-cols-5";
+    if (pokemonCount <= 10) return "grid-cols-5";
+    if (pokemonCount <= 15) return "grid-cols-5";
+    return "grid-cols-5"; // untuk 20 pokemon
+  };
 
   return (
     <>
       {/* Win Modal */}
       {showWinModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-xs font-bubble">
+        <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-xs">
           <div className="max-w-md p-8 mx-4 text-center bg-white rounded-lg shadow-2xl">
             <div className="mb-4">
-              <h2 className="mb-2 text-xl font-bold text-green-600">
+              <h2 className="mb-2 text-3xl font-bold text-green-600 font-pokemon">
                 Congrats!
               </h2>
-              <p className="text-gray-600">You conquered it!</p>
+              <p className="text-gray-600 font-bubble">
+                You conquered {difficulty} mode!
+              </p>
             </div>
 
             <div className="p-4 mb-6 rounded-lg bg-gray-50">
-              <p className="text-lg font-semibold text-gray-800">
+              <p className="text-lg font-semibold text-gray-800 font-bubble">
                 Final Score: <span className="text-blue-600">{score}</span>
               </p>
               {score === bestScore && (
-                <p className="mt-1 text-sm font-medium text-green-600">
+                <p className="mt-1 text-sm font-medium text-green-600 font-bubble">
                   🏆 New Best Score!
                 </p>
               )}
@@ -55,15 +60,15 @@ export default function Card() {
             <div className="flex justify-center gap-3">
               <button
                 onClick={resetGame}
-                className="px-6 py-2 font-medium text-white transition-colors bg-blue-500 rounded-lg hover:bg-blue-600"
+                className="px-6 py-2 font-medium text-white transition-colors bg-blue-500 rounded-lg hover:bg-blue-600 font-bubble"
               >
                 Play Again
               </button>
               <button
-                onClick={closeWinModal}
-                className="px-6 py-2 font-medium text-gray-700 transition-colors bg-gray-300 rounded-lg hover:bg-gray-400"
+                onClick={onBackToMenu}
+                className="px-6 py-2 font-medium text-gray-700 transition-colors bg-gray-300 rounded-lg hover:bg-gray-400 font-bubble"
               >
-                Close
+                Main Menu
               </button>
             </div>
           </div>
@@ -72,22 +77,22 @@ export default function Card() {
 
       {/* Game Over Modal */}
       {showLoseModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-xs font-bubble">
+        <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-xs">
           <div className="max-w-md p-8 mx-4 text-center bg-white rounded-lg shadow-2xl">
             <div className="mb-4">
-              <h2 className="mb-2 text-xl font-bold text-red-600">
+              <h2 className="mb-2 text-3xl font-bold text-red-600 font-pokemon">
                 Game Over!
               </h2>
-              <p className="text-gray-600">
+              <p className="text-gray-600 font-bubble">
                 You clicked the same Pokemon twice!
               </p>
             </div>
 
             <div className="p-4 mb-6 rounded-lg bg-gray-50">
-              <p className="text-lg font-semibold text-gray-800">
+              <p className="text-lg font-semibold text-gray-800 font-bubble">
                 Your Score: <span className="text-blue-600">{score}</span>
               </p>
-              <p className="mt-1 text-sm text-gray-600">
+              <p className="mt-1 text-sm text-gray-600 font-bubble">
                 Best Score:{" "}
                 <span className="font-medium text-green-600">{bestScore}</span>
               </p>
@@ -96,15 +101,15 @@ export default function Card() {
             <div className="flex justify-center gap-3">
               <button
                 onClick={resetGame}
-                className="px-6 py-2 font-medium text-white transition-colors bg-yellow-500 rounded-lg hover:bg-yellow-600"
+                className="px-6 py-2 font-medium text-white transition-colors bg-blue-500 rounded-lg hover:bg-blue-600 font-bubble"
               >
                 New Game
               </button>
               <button
-                onClick={closeLoseModal}
-                className="px-6 py-2 font-medium text-gray-700 transition-colors bg-gray-300 rounded-lg hover:bg-gray-400"
+                onClick={onBackToMenu}
+                className="px-6 py-2 font-medium text-white transition-colors bg-purple-500 rounded-lg hover:bg-purple-600 font-bubble"
               >
-                Close
+                Change Difficulty
               </button>
             </div>
           </div>
@@ -112,6 +117,21 @@ export default function Card() {
       )}
 
       <div className="flex flex-col items-center">
+        {/* Difficulty Badge & Back Button */}
+        <div className="flex items-center gap-4 mb-6">
+          <button
+            onClick={onBackToMenu}
+            className="px-4 py-2 text-white transition-colors bg-gray-500 rounded-lg hover:bg-gray-600 font-bubble"
+          >
+            ← Back to Menu
+          </button>
+          <div className="px-6 py-2 bg-purple-100 border-2 border-purple-300 rounded-lg">
+            <p className="text-lg font-bold text-purple-700 font-bubble">
+              Difficulty: {difficulty}
+            </p>
+          </div>
+        </div>
+
         {/* Score Display */}
         <div className="mb-6 text-center">
           <div className="flex items-center justify-center gap-8 mb-5">
@@ -141,7 +161,7 @@ export default function Card() {
         </div>
 
         {/* Pokemon Cards Grid */}
-        <div className="grid items-center grid-cols-5 gap-4 mb-6">
+        <div className={`grid ${getGridCols()} gap-4 items-center mb-6`}>
           {pokemon.map((pokemonData) => (
             <div
               key={pokemonData.id}
