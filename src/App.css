@@ -9,6 +9,16 @@
 }
 
 @font-face {
+  font-family: "pokemonsolid";
+  src: url("/Font/PokemonSolid.ttf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
+}
+
+@font-face {
   font-family: "bubblegum";
   src: url("/Font/BubblegumSans-Regular.ttf");
   font-weight: normal;
@@ -18,5 +28,12 @@
 
 @theme {
   --font-pokemon: pokemon, "sans-serif";
+  --font-pokemonsolid: pokemonsolid, "sans-serif";
   --font-bubble: bubblegum, "sans-serif";
+}
+
+body {
+  background-image: url("/forest.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
