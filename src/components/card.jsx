@@ -29,7 +29,7 @@ export default function Card() {
     <>
       {/* Win Modal */}
       {showWinModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-xs">
+        <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-xs font-bubble">
           <div className="max-w-md p-8 mx-4 text-center bg-white rounded-lg shadow-2xl">
             <div className="mb-4">
               <h2 className="mb-2 text-xl font-bold text-green-600">
@@ -69,7 +69,7 @@ export default function Card() {
 
       {/* Game Over Modal */}
       {showLoseModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-xs">
+        <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-xs font-bubble">
           <div className="max-w-md p-8 mx-4 text-center bg-white rounded-lg shadow-2xl">
             <div className="mb-4">
               <h2 className="mb-2 text-xl font-bold text-red-600">
@@ -93,7 +93,7 @@ export default function Card() {
             <div className="flex justify-center gap-3">
               <button
                 onClick={resetGame}
-                className="px-6 py-2 font-medium text-white transition-colors bg-blue-500 rounded-lg hover:bg-blue-600"
+                className="px-6 py-2 font-medium text-white transition-colors bg-yellow-500 rounded-lg hover:bg-yellow-600"
               >
                 New Game
               </button>
