@@ -17,8 +17,11 @@ export default function Card({ pokemonCount, difficulty, onBackToMenu }) {
 
   if (!dataIsLoaded) {
     return (
-      <div className="flex items-center justify-center h-64">
-        <h1 className="text-xl">Please wait some time....</h1>
+      <div className="flex flex-col items-center justify-center h-5/6">
+        <h1 className="text-2xl mb-7 font-bubble">
+          Catching some pokemons....
+        </h1>
+        <img className="rounded-2xl" src="/pokemons.gif" alt="pokemon" />
       </div>
     );
   }
