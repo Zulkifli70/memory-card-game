@@ -19,8 +19,11 @@ export default function Card() {
 
   if (!dataIsLoaded) {
     return (
-      <div className="flex items-center justify-center h-64">
-        <h1 className="text-xl">Please wait some time....</h1>
+      <div className="flex flex-col items-center justify-center h-4/6">
+        <h1 className="text-xl mb-7 font-pokemon">
+          Catching some pokemons....
+        </h1>
+        <img src="/pokemons.gif" alt="pokemon" />
       </div>
     );
   }
