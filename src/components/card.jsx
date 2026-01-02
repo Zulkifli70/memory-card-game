@@ -18,7 +18,7 @@ export default function Card({ pokemonCount, difficulty, onBackToMenu }) {
   if (!dataIsLoaded) {
     return (
       <div className="flex flex-col items-center justify-center h-5/6">
-        <h1 className="text-2xl mb-7 font-bubble">
+        <h1 className="text-2xl mb-7 font-pokemonsolid">
           Catching some pokemons....
         </h1>
         <img className="rounded-2xl" src="/pokemons.gif" alt="pokemon" />
@@ -30,8 +30,8 @@ export default function Card({ pokemonCount, difficulty, onBackToMenu }) {
   const getGridCols = () => {
     if (pokemonCount <= 5) return "grid-cols-5";
     if (pokemonCount <= 10) return "grid-cols-5";
-    if (pokemonCount <= 15) return "grid-cols-5";
-    return "grid-cols-5"; // untuk 20 pokemon
+    if (pokemonCount <= 15) return "grid-cols-8";
+    return "grid-cols-10"; // untuk 20 pokemon
   };
 
   return (
@@ -121,91 +121,97 @@ export default function Card({ pokemonCount, difficulty, onBackToMenu }) {
 
       <div className="flex flex-col items-center">
         {/* Difficulty Badge & Back Button */}
-        <div className="flex items-center gap-4 mb-6">
-          <button
-            onClick={onBackToMenu}
-            className="px-4 py-2 text-white transition-colors bg-gray-500 rounded-lg hover:bg-gray-600 font-bubble"
-          >
-            ← Back to Menu
-          </button>
-          <div className="px-6 py-2 bg-purple-100 border-2 border-purple-300 rounded-lg">
-            <p className="text-lg font-bold text-purple-700 font-bubble">
-              Difficulty: {difficulty}
-            </p>
-          </div>
-        </div>
-
-        {/* Score Display */}
-        <div className="mb-6 text-center">
-          <div className="flex items-center justify-center gap-8 mb-5">
-            <div className="px-4 py-2 bg-blue-100 rounded-lg">
-              <p className="text-2xl text-gray-800 font-extrabold tracking-[.3em] font-bubble mb-4">
-                Current Score
-              </p>
-              <p className="text-4xl font-bold text-blue-600 font-pokemon">
-                {score}
-              </p>
-            </div>
-            <div className="px-4 py-2 bg-green-100 rounded-lg">
-              <p className="text-2xl text-gray-800 font-extrabold tracking-[.3em] font-bubble mb-4">
-                Best Score
-              </p>
-              <p className="text-4xl font-bold text-green-600 font-pokemon">
-                {bestScore}
-              </p>
-            </div>
-          </div>
-          <p className="mt-2 text-lg text-gray-500 font-bubble">
-            Click Pokemon that you didn't click before!
-          </p>
-          <p className="mt-2 text-lg text-gray-500 font-bubble">
-            If you lose, the pokemon will be randomized automatically
-          </p>
-        </div>
-
-        {/* Pokemon Cards Grid */}
-        <div className={`grid ${getGridCols()} gap-4 items-center mb-6`}>
-          {pokemon.map((pokemonData) => (
-            <div
-              key={pokemonData.id}
-              className="flex flex-col w-40 overflow-hidden transition-all duration-200 border-2 rounded-md cursor-pointer h-52 hover:shadow-lg"
-              onClick={() => handleCardClick(pokemonData)}
-            >
-              <div className="flex items-center justify-center flex-1 p-4 bg-gradient-to-br from-blue-50 to-indigo-100">
-                <img
-                  src={pokemonData.sprites.front_default}
-                  alt={pokemonData.name}
-                  className="object-contain w-24 h-24 transition-transform duration-200 hover:scale-110"
-                />
-              </div>
-              <div className="p-2 text-center bg-white">
-                <p className="text-lg font-medium capitalize font-bubble">
-                  {pokemonData.name}
+        <div className="bg-[rgba(0,0,0,0.32)] rounded-2xl p-8 flex flex-col items-center">
+          <div className="flex items-start justify-between w-full">
+            <div className="flex items-center gap-4 mb-6">
+              <button
+                onClick={onBackToMenu}
+                className="px-4 py-2 text-white transition-colors bg-gray-500 rounded-lg hover:bg-gray-600 font-bubble"
+              >
+                ← Back to Menu
+              </button>
+              <div className="px-6 py-2 bg-purple-100 border-2 border-purple-300 rounded-lg">
+                <p className="text-lg font-bold text-purple-700 font-bubble">
+                  Difficulty: {difficulty}
                 </p>
               </div>
             </div>
-          ))}
-        </div>
-
-        {/* Control Buttons */}
-        <div className="flex gap-4">
-          <button
-            onClick={resetGame}
-            className="px-4 py-2 text-2xl transition-colors bg-yellow-500 rounded text-zinc-900 hover:bg-yellow-600 font-bubble"
+            {/* Score Display */}
+            <div className="flex justify-center mb-6 text-center">
+              <div className="flex items-center justify-center gap-8 mb-5">
+                <div className="px-4 py-2 bg-blue-100 rounded-lg">
+                  <p className="text-2xl text-gray-800 font-extrabold tracking-[.3em] font-bubble mb-4">
+                    Score
+                  </p>
+                  <p className="text-4xl font-bold text-blue-600 font-bubble">
+                    {score}
+                  </p>
+                </div>
+                <div className="px-4 py-2 bg-green-100 rounded-lg">
+                  <p className="text-2xl text-gray-800 font-extrabold tracking-[.3em] font-bubble mb-4">
+                    Best Score
+                  </p>
+                  <p className="text-4xl font-bold text-green-600 font-bubble">
+                    {bestScore}
+                  </p>
+                </div>
+              </div>
+            </div>
+            {/* Clicked Pokemon */}
+            <div className="py-4 mt-4 mb-10 text-lg text-center text-gray-800 bg-white rounded-xs px-7 font-bubble">
+              <p>
+                Clicked unique pokemon: {clickedPokemon.length} /{" "}
+                {pokemon.length}
+              </p>
+            </div>
+          </div>
+          <div className="mb-5 text-center">
+            <p className="mt-2 text-lg text-white font-bubble">
+              Click Pokemon that you didn't click before!
+            </p>
+            <p className="mt-2 text-lg text-white font-bubble">
+              If you lose, the pokemon will be randomized automatically
+            </p>
+          </div>
+          {/* Pokemon Cards Grid */}
+          <div
+            className={`grid ${getGridCols()} gap-4 justify-items-center items-center mb-6`}
           >
-            New Game
-          </button>
+            {pokemon.map((pokemonData) => (
+              <div
+                key={pokemonData.id}
+                className="flex flex-col w-40 overflow-hidden transition-all duration-200 border-2 rounded-md cursor-pointer h-52 hover:shadow-lg"
+                onClick={() => handleCardClick(pokemonData)}
+              >
+                <div className="flex items-center justify-center flex-1 p-4 bg-gradient-to-br from-blue-50 to-indigo-100">
+                  <img
+                    src={pokemonData.sprites.front_default}
+                    alt={pokemonData.name}
+                    className="object-contain w-24 h-24 transition-transform duration-200 hover:scale-110"
+                  />
+                </div>
+                <div className="p-2 text-center bg-white">
+                  <p className="text-lg font-medium capitalize font-bubble">
+                    {pokemonData.name}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+          {/* Control Buttons */}
+          <div className="flex gap-4">
+            <button
+              onClick={resetGame}
+              className="px-4 py-2 text-2xl transition-colors bg-yellow-500 rounded text-zinc-900 hover:bg-yellow-600 font-bubble"
+            >
+              New Game
+            </button>
+          </div>
+          {/* Game Stats */}
+          <h1 className="mt-10 text-2xl font-bold font-pokemon">
+            Code By Zulkifli Firdausi
+          </h1>
         </div>
-
-        {/* Game Stats */}
-        <div className="mt-4 mb-10 text-lg text-center text-gray-600 font-bubble">
-          <p>
-            Clicked unique pokemon: {clickedPokemon.length} / {pokemon.length}
-          </p>
-        </div>
-        <h1 className="text-2xl font-bold font-pokemon">
-          Code By Zulkifli Firdausi
-        </h1>
       </div>
     </>
   );
