@@ -16,6 +16,7 @@ export const usePokemonGame = (pokemonCount = 10) => {
   const [bestScore, setBestScore] = useState(0);
   const [clickedPokemon, setClickedPokemon] = useState([]);
   const [showWinModal, setShowWinModal] = useState(false);
+  const [showLoseModal, setShowLoseModal] = useState(false);
 
   const fetchNewPokemon = async () => {
     try {
@@ -25,7 +26,7 @@ export const usePokemonGame = (pokemonCount = 10) => {
       setDataIsLoaded(true);
     } catch (error) {
       console.error("Error loading Pokemon:", error);
-      setDataIsLoaded(true); // Set true even on error to show error state
+      setDataIsLoaded(true);
     }
   };
 
@@ -40,6 +41,7 @@ export const usePokemonGame = (pokemonCount = 10) => {
     setScore(initialState.score);
     setClickedPokemon(initialState.clickedPokemon);
     setShowWinModal(initialState.showWinModal);
+    setShowLoseModal(false);
 
     await fetchNewPokemon();
   };
@@ -48,8 +50,8 @@ export const usePokemonGame = (pokemonCount = 10) => {
     console.log(`Clicked on: ${clickedPokemonData.name}`);
 
     if (isPokemonClicked(clickedPokemonData.id, clickedPokemon)) {
-      console.log("Game reset - Pokemon already clicked");
-      resetGame();
+      console.log("Game Over - Pokemon already clicked");
+      setShowLoseModal(true);
       return;
     }
 
@@ -72,6 +74,10 @@ export const usePokemonGame = (pokemonCount = 10) => {
     setShowWinModal(false);
   };
 
+  const closeLoseModal = () => {
+    setShowLoseModal(false);
+  };
+
   useEffect(() => {
     fetchNewPokemon();
   }, []);
@@ -83,10 +89,12 @@ export const usePokemonGame = (pokemonCount = 10) => {
     bestScore,
     clickedPokemon,
     showWinModal,
+    showLoseModal,
 
     handleCardClick,
     resetGame,
     closeWinModal,
+    closeLoseModal,
     fetchNewPokemon,
   };
 };
