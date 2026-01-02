@@ -39,43 +39,45 @@ export default function DifficultySelector({ onSelectDifficulty }) {
 
   return (
     <div className="flex flex-col items-center justify-center px-4 py-12">
-      <div className="mb-12 text-center">
-        <h2 className="mb-4 text-4xl font-bold text-gray-800 font-bubble">
-          Choose Your Difficulty
-        </h2>
-        <p className="text-xl text-gray-600 font-bubble">
-          Select how many Pokemon you want to remember
-        </p>
-      </div>
-
-      <div className="grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-        {difficulties.map((diff) => (
-          <button
-            key={diff.level}
-            onClick={() => onSelectDifficulty(diff.level, diff.count)}
-            className={`bg-gradient-to-br ${diff.color} ${diff.hoverColor} 
-              text-white rounded-xl p-8 shadow-lg transform transition-all 
-              duration-300 hover:scale-105 hover:shadow-2xl 
-              flex flex-col items-center justify-center gap-4 min-h-[280px]`}
-          >
-            <div className="mb-2 text-6xl">{diff.icon}</div>
-            <h3 className="text-3xl font-bold font-pokemon">{diff.level}</h3>
-            <div className="px-4 py-2 rounded-lg bg-white/20 backdrop-blur-sm">
-              <p className="text-2xl font-bold font-bubble">
-                {diff.count} Pokemon
+      <div className="p-8 bg-[rgba(0,0,0,0.32)] rounded-2xl">
+        <div className="p-5 mb-12 text-center">
+          <h2 className="mb-4 text-4xl font-bold text-[#FFFFFF] font-bubble">
+            Choose Your Difficulty
+          </h2>
+          <p className="text-xl text-[#FFFFFF] font-bubble">
+            Select how many Pokemon you want to remember
+          </p>
+        </div>
+        <div className="grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {difficulties.map((diff) => (
+            <button
+              key={diff.level}
+              onClick={() => onSelectDifficulty(diff.level, diff.count)}
+              className={`bg-gradient-to-br ${diff.color} ${diff.hoverColor}
+                  text-white rounded-xl p-8 shadow-lg transform transition-all
+                  duration-300 hover:scale-105 hover:shadow-2xl
+                  flex flex-col items-center justify-center gap-4 min-h-[280px]`}
+            >
+              <div className="mb-2 text-6xl">{diff.icon}</div>
+              <h3 className="text-3xl font-bold font-pokemonsolid text-[#FECA00ff] drop-shadow-lg [text-shadow:_-3px_-3px_0_#28569Bff,_3px_-3px_0_#28569Bff,_-3px_3px_0_#28569Bff,_3px_3px_0_#28569Bff,_-3px_0px_0_#28569Bff,_3px_0px_0_#28569Bff,_0px_-3px_0_#28569Bff,_0px_3px_0_#28569Bff]">
+                {diff.level}
+              </h3>
+              <div className="px-4 py-2 rounded-lg bg-white/20 backdrop-blur-sm">
+                <p className="text-2xl font-bold font-bubble">
+                  {diff.count} Pokemon
+                </p>
+              </div>
+              <p className="text-sm font-medium opacity-90 font-bubble">
+                {diff.description}
               </p>
-            </div>
-            <p className="text-sm font-medium opacity-90 font-bubble">
-              {diff.description}
-            </p>
-          </button>
-        ))}
-      </div>
-
-      <div className="mt-12 text-center text-gray-600 font-bubble">
-        <p className="text-lg">
-          💡 Tip: Start with Easy if you're new to the game!
-        </p>
+            </button>
+          ))}
+        </div>
+        <div className="mt-12 text-center text-[#000000] rounded-xl font-bubble bg-white p-5">
+          <p className="text-lg">
+            💡 Tip: Start with Easy if you're new to the game!
+          </p>
+        </div>
       </div>
     </div>
   );
