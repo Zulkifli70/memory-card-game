@@ -9,7 +9,6 @@ export default function DifficultySelector({ onSelectDifficulty }) {
       color: "from-green-400 to-green-600",
       hoverColor: "hover:from-green-500 hover:to-green-700",
       description: "Perfect for beginners",
-      icon: "🌱",
     },
     {
       level: "Normal",
@@ -17,7 +16,6 @@ export default function DifficultySelector({ onSelectDifficulty }) {
       color: "from-blue-400 to-blue-600",
       hoverColor: "hover:from-blue-500 hover:to-blue-700",
       description: "Standard challenge",
-      icon: "⚡",
     },
     {
       level: "Hard",
@@ -25,7 +23,6 @@ export default function DifficultySelector({ onSelectDifficulty }) {
       color: "from-orange-400 to-orange-600",
       hoverColor: "hover:from-orange-500 hover:to-orange-700",
       description: "For experienced players",
-      icon: "🔥",
     },
     {
       level: "Extreme",
@@ -33,7 +30,6 @@ export default function DifficultySelector({ onSelectDifficulty }) {
       color: "from-red-500 to-purple-600",
       hoverColor: "hover:from-red-600 hover:to-purple-700",
       description: "Ultimate test",
-      icon: "💀",
     },
   ];
 
@@ -59,7 +55,7 @@ export default function DifficultySelector({ onSelectDifficulty }) {
                   flex flex-col items-center justify-center gap-4 min-h-[280px]`}
             >
               <div className="mb-2 text-6xl">{diff.icon}</div>
-              <h3 className="text-3xl font-bold font-pokemonsolid text-[#FECA00ff] drop-shadow-lg [text-shadow:_-3px_-3px_0_#28569Bff,_3px_-3px_0_#28569Bff,_-3px_3px_0_#28569Bff,_3px_3px_0_#28569Bff,_-3px_0px_0_#28569Bff,_3px_0px_0_#28569Bff,_0px_-3px_0_#28569Bff,_0px_3px_0_#28569Bff]">
+              <h3 className="text-3xl font-bold tracking-wider font-pokemonsolid text-[#FECA00ff] drop-shadow-lg [text-shadow:_-3px_-3px_0_#28569Bff,_3px_-3px_0_#28569Bff,_-3px_3px_0_#28569Bff,_3px_3px_0_#28569Bff,_-3px_0px_0_#28569Bff,_3px_0px_0_#28569Bff,_0px_-3px_0_#28569Bff,_0px_3px_0_#28569Bff]">
                 {diff.level}
               </h3>
               <div className="px-4 py-2 rounded-lg bg-white/20 backdrop-blur-sm">
