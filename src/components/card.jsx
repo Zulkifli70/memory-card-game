@@ -165,8 +165,8 @@ export default function Card({ pokemonCount, difficulty, onBackToMenu }) {
               </div>
             </div>
             {/* Clicked Pokemon */}
-            <div className="py-4 mt-4 mb-10 text-lg text-center text-gray-800 bg-white rounded-xs px-7 font-bubble">
-              <p>
+            <div className="px-6 py-3 mt-4 mb-10 text-lg text-center border-2 border-orange-300 shadow-lg bg-gradient-to-r from-amber-400 to-orange-400 rounded-xl font-bubble">
+              <p className="font-bold text-white">
                 Clicked unique pokemon: {clickedPokemon.length} /{" "}
                 {pokemon.length}
               </p>
