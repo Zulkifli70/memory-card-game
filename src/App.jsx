@@ -20,7 +20,7 @@ function App() {
 
   return (
     <>
-      <div className="flex flex-col justify-between h-screen">
+      <div className="flex flex-col justify-around h-screen">
         <Navbar />
         {!difficulty ? (
           <DifficultySelector onSelectDifficulty={handleDifficultySelect} />
