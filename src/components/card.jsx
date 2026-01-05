@@ -172,33 +172,35 @@ export default function Card({ pokemonCount, difficulty, onBackToMenu }) {
               </p>
             </div>
           </div>
-          <div className="mb-5 text-center">
-            <p className="mt-2 text-lg text-white font-bubble">
+
+          <div className="p-4 mb-6 text-center border bg-white/10 backdrop-blur-sm rounded-xl border-white/20">
+            <p className="text-lg font-semibold text-white font-bubble">
               Click Pokemon that you didn't click before!
             </p>
-            <p className="mt-2 text-lg text-white font-bubble">
+            <p className="mt-1 text-base text-gray-200 font-bubble">
               If you lose, the pokemon will be randomized automatically
             </p>
           </div>
+
           {/* Pokemon Cards Grid */}
           <div
-            className={`grid ${getGridCols()} gap-4 justify-items-center items-center mb-6`}
+            className={`grid ${getGridCols()} gap-5 justify-items-center items-center mb-6`}
           >
             {pokemon.map((pokemonData) => (
               <div
                 key={pokemonData.id}
-                className="flex flex-col w-40 overflow-hidden transition-all duration-200 border-2 rounded-md cursor-pointer h-52 hover:shadow-lg"
+                className="flex flex-col w-40 overflow-hidden transition-all duration-300 bg-white cursor-pointer border-3 border-white/30 rounded-2xl h-52 hover:shadow-2xl hover:scale-105 hover:-translate-y-1"
                 onClick={() => handleCardClick(pokemonData)}
               >
-                <div className="flex items-center justify-center flex-1 p-4 bg-gradient-to-br from-blue-50 to-indigo-100">
+                <div className="flex items-center justify-center flex-1 p-4 bg-gradient-to-br from-sky-100 via-blue-50 to-indigo-100">
                   <img
                     src={pokemonData.sprites.front_default}
                     alt={pokemonData.name}
-                    className="object-contain w-24 h-24 transition-transform duration-200 hover:scale-110"
+                    className="object-contain transition-transform duration-300 w-28 h-28 hover:scale-110 drop-shadow-lg"
                   />
                 </div>
-                <div className="p-2 text-center bg-white">
-                  <p className="text-lg font-medium capitalize font-bubble">
+                <div className="p-3 text-center border-t-2 bg-gradient-to-r from-slate-700 to-slate-800 border-slate-600">
+                  <p className="text-lg font-bold text-white capitalize font-bubble drop-shadow">
                     {pokemonData.name}
                   </p>
                 </div>
