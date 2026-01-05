@@ -128,7 +128,7 @@ export default function Card({ pokemonCount, difficulty, onBackToMenu }) {
 
       <div className="flex flex-col items-center">
         {/* Difficulty Badge & Back Button */}
-        <div className="bg-[rgba(0,0,0,0.32)] rounded-2xl p-8 flex flex-col items-center min-w-10/12">
+        <div className="flex flex-col items-center p-8 border shadow-2xl bg-gradient-to-br from-slate-900/80 to-slate-800/80 backdrop-blur-md rounded-3xl min-w-10/12 border-white/10">
           <div className="flex items-start justify-between w-full">
             <div className="flex items-center gap-4 mb-6">
               <button
