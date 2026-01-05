@@ -55,7 +55,7 @@ export default function DifficultySelector({ onSelectDifficulty }) {
                   flex flex-col items-center justify-center gap-4 min-h-[280px]`}
             >
               <div className="mb-2 text-6xl">{diff.icon}</div>
-              <h3 className="text-3xl font-bold tracking-wider font-pokemonsolid text-[#FECA00ff] drop-shadow-lg [text-shadow:_-3px_-3px_0_#28569Bff,_3px_-3px_0_#28569Bff,_-3px_3px_0_#28569Bff,_3px_3px_0_#28569Bff,_-3px_0px_0_#28569Bff,_3px_0px_0_#28569Bff,_0px_-3px_0_#28569Bff,_0px_3px_0_#28569Bff]">
+              <h3 className="text-3xl font-bold tracking-wider font-bubble text-[#FECA00ff] drop-shadow-lg [text-shadow:_-3px_-3px_0_#28569Bff,_3px_-3px_0_#28569Bff,_-3px_3px_0_#28569Bff,_3px_3px_0_#28569Bff,_-3px_0px_0_#28569Bff,_3px_0px_0_#28569Bff,_0px_-3px_0_#28569Bff,_0px_3px_0_#28569Bff]">
                 {diff.level}
               </h3>
               <div className="px-4 py-2 rounded-lg bg-white/20 backdrop-blur-sm">
@@ -69,8 +69,8 @@ export default function DifficultySelector({ onSelectDifficulty }) {
             </button>
           ))}
         </div>
-        <div className="mt-12 text-center text-[#000000] rounded-xl font-bubble bg-white p-5">
-          <p className="text-lg">
+        <div className="p-4 mt-10 mb-6 text-center border bg-white/10 backdrop-blur-sm rounded-xl border-white/20">
+          <p className="text-lg font-semibold text-white font-bubble">
             💡 Tip: Start with Easy if you're new to the game!
           </p>
         </div>
