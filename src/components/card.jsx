@@ -133,7 +133,7 @@ export default function Card({ pokemonCount, difficulty, onBackToMenu }) {
             <div className="flex items-center gap-4 mb-6">
               <button
                 onClick={onBackToMenu}
-                className="px-4 py-2 text-white transition-colors bg-gray-500 rounded-lg hover:bg-gray-600 font-bubble"
+                className="px-5 py-2.5 text-white transition-all bg-gradient-to-r from-slate-600 to-slate-700 rounded-xl hover:from-slate-700 hover:to-slate-800 font-bubble shadow-lg hover:shadow-xl"
               >
                 ← Back to Menu
               </button>
