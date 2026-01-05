@@ -211,7 +211,7 @@ export default function Card({ pokemonCount, difficulty, onBackToMenu }) {
           <div className="flex gap-4">
             <button
               onClick={resetGame}
-              className="px-4 py-2 text-2xl transition-colors bg-yellow-500 rounded text-zinc-900 hover:bg-yellow-600 font-bubble"
+              className="px-8 py-3 text-xl font-bold transition-all border-2 border-yellow-300 shadow-lg bg-gradient-to-r from-yellow-400 to-orange-500 rounded-xl text-slate-900 hover:from-yellow-500 hover:to-orange-600 hover:shadow-2xl font-bubble hover:scale-105"
             >
               New Game
             </button>
