@@ -83,37 +83,41 @@ export default function Card({ pokemonCount, difficulty, onBackToMenu }) {
 
       {/* Game Over Modal */}
       {showLoseModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-xs">
-          <div className="max-w-md p-8 mx-4 text-center bg-white rounded-lg shadow-2xl">
+        <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm bg-black/30">
+          <div className="max-w-md p-8 mx-4 text-center border-4 border-red-300 shadow-2xl bg-gradient-to-br from-red-50 to-pink-50 rounded-2xl">
             <div className="mb-4">
-              <h2 className="mb-2 text-3xl font-bold text-red-600 font-pokemon">
+              <div className="mb-3 text-6xl">😢</div>
+              <h2 className="mb-2 text-4xl font-bold text-red-500 font-pokemon">
                 Game Over!
               </h2>
-              <p className="text-gray-600 font-bubble">
+              <p className="text-lg text-gray-700 font-bubble">
                 You clicked the same Pokemon twice!
               </p>
             </div>
 
-            <div className="p-4 mb-6 rounded-lg bg-gray-50">
-              <p className="text-lg font-semibold text-gray-800 font-bubble">
-                Your Score: <span className="text-blue-600">{score}</span>
+            <div className="p-5 mb-6 shadow-inner rounded-xl bg-white/80 backdrop-blur-sm">
+              <p className="text-xl font-semibold text-gray-800 font-bubble">
+                Your Score:{" "}
+                <span className="text-2xl text-blue-600">{score}</span>
               </p>
-              <p className="mt-1 text-sm text-gray-600 font-bubble">
+              <p className="mt-2 text-base text-gray-600 font-bubble">
                 Best Score:{" "}
-                <span className="font-medium text-green-600">{bestScore}</span>
+                <span className="text-lg font-medium text-green-600">
+                  {bestScore}
+                </span>
               </p>
             </div>
 
             <div className="flex justify-center gap-3">
               <button
                 onClick={resetGame}
-                className="px-6 py-2 font-medium text-white transition-colors bg-blue-500 rounded-lg hover:bg-blue-600 font-bubble"
+                className="px-6 py-3 font-medium text-white transition-all rounded-lg shadow-md bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 hover:shadow-lg font-bubble"
               >
                 New Game
               </button>
               <button
                 onClick={onBackToMenu}
-                className="px-6 py-2 font-medium text-white transition-colors bg-purple-500 rounded-lg hover:bg-purple-600 font-bubble"
+                className="px-6 py-3 font-medium text-white transition-all rounded-lg shadow-md bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 hover:shadow-lg font-bubble"
               >
                 Change Difficulty
               </button>
