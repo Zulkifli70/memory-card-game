@@ -137,28 +137,28 @@ export default function Card({ pokemonCount, difficulty, onBackToMenu }) {
               >
                 ← Back to Menu
               </button>
-              <div className="px-6 py-2 bg-purple-100 border-2 border-purple-300 rounded-lg">
-                <p className="text-lg font-bold text-purple-700 font-bubble">
+              <div className="px-6 py-2.5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl shadow-lg border-2 border-white/20">
+                <p className="text-lg font-bold text-white font-bubble">
                   Difficulty: {difficulty}
                 </p>
               </div>
             </div>
             {/* Score Display */}
             <div className="flex justify-center mb-6 text-center">
-              <div className="flex items-center justify-center gap-8 mb-5">
-                <div className="px-4 py-2 bg-blue-100 rounded-lg">
-                  <p className="text-2xl text-gray-800 font-extrabold tracking-[.3em] font-bubble mb-4">
+              <div className="flex items-center justify-center gap-6">
+                <div className="px-6 py-4 border-2 border-blue-300 shadow-xl bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl">
+                  <p className="mb-2 text-xl font-extrabold tracking-wider text-white font-bubble">
                     Score
                   </p>
-                  <p className="text-4xl font-bold text-blue-600 font-bubble">
+                  <p className="text-5xl font-bold text-white font-bubble drop-shadow-lg">
                     {score}
                   </p>
                 </div>
-                <div className="px-4 py-2 bg-green-100 rounded-lg">
-                  <p className="text-2xl text-gray-800 font-extrabold tracking-[.3em] font-bubble mb-4">
+                <div className="px-6 py-4 border-2 border-green-300 shadow-xl bg-gradient-to-br from-green-400 to-emerald-600 rounded-2xl">
+                  <p className="mb-2 text-xl font-extrabold tracking-wider text-white font-bubble">
                     Best Score
                   </p>
-                  <p className="text-4xl font-bold text-green-600 font-bubble">
+                  <p className="text-5xl font-bold text-white font-bubble drop-shadow-lg">
                     {bestScore}
                   </p>
                 </div>
