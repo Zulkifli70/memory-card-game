@@ -40,23 +40,24 @@ export default function Card({ pokemonCount, difficulty, onBackToMenu }) {
     <>
       {/* Win Modal */}
       {showWinModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-xs">
-          <div className="max-w-md p-8 mx-4 text-center bg-white rounded-lg shadow-2xl">
+        <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm bg-black/30">
+          <div className="max-w-md p-8 mx-4 text-center border-4 border-yellow-400 shadow-2xl bg-gradient-to-br from-yellow-50 to-orange-50 rounded-2xl">
             <div className="mb-4">
-              <h2 className="mb-2 text-3xl font-bold text-green-600 font-pokemon">
-                Congrats!
+              <h2 className="mb-2 text-4xl font-bold text-yellow-600 font-pokemon">
+                You Win!
               </h2>
-              <p className="text-gray-600 font-bubble">
+              <p className="text-lg text-gray-700 font-bubble">
                 You conquered {difficulty} mode!
               </p>
             </div>
 
-            <div className="p-4 mb-6 rounded-lg bg-gray-50">
-              <p className="text-lg font-semibold text-gray-800 font-bubble">
-                Final Score: <span className="text-blue-600">{score}</span>
+            <div className="p-5 mb-6 shadow-inner rounded-xl bg-white/80 backdrop-blur-sm">
+              <p className="text-xl font-semibold text-gray-800 font-bubble">
+                Final Score:{" "}
+                <span className="text-2xl text-blue-600">{score}</span>
               </p>
               {score === bestScore && (
-                <p className="mt-1 text-sm font-medium text-green-600 font-bubble">
+                <p className="mt-2 text-base font-medium text-yellow-600 font-bubble">
                   🏆 New Best Score!
                 </p>
               )}
@@ -65,13 +66,13 @@ export default function Card({ pokemonCount, difficulty, onBackToMenu }) {
             <div className="flex justify-center gap-3">
               <button
                 onClick={resetGame}
-                className="px-6 py-2 font-medium text-white transition-colors bg-blue-500 rounded-lg hover:bg-blue-600 font-bubble"
+                className="px-6 py-3 font-medium text-white transition-all rounded-lg shadow-md bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 hover:shadow-lg font-bubble"
               >
                 Play Again
               </button>
               <button
                 onClick={onBackToMenu}
-                className="px-6 py-2 font-medium text-gray-700 transition-colors bg-gray-300 rounded-lg hover:bg-gray-400 font-bubble"
+                className="px-6 py-3 font-medium text-gray-700 transition-all bg-gray-200 rounded-lg shadow-md hover:bg-gray-300 hover:shadow-lg font-bubble"
               >
                 Main Menu
               </button>
