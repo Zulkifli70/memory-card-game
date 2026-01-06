@@ -36,6 +36,43 @@ export default function Card({ pokemonCount, difficulty, onBackToMenu }) {
     return "grid-cols-10"; // untuk 20 pokemon
   };
 
+  const getDifficultyColors = () => {
+    switch (difficulty) {
+      case "Easy":
+        return {
+          gradient: "from-green-400 to-green-600",
+          border: "border-green-300",
+          shadow: "shadow-green-500/50",
+        };
+      case "Normal":
+        return {
+          gradient: "from-blue-400 to-blue-600",
+          border: "border-blue-300",
+          shadow: "shadow-blue-500/50",
+        };
+      case "Hard":
+        return {
+          gradient: "from-orange-400 to-orange-600",
+          border: "border-orange-300",
+          shadow: "shadow-orange-500/50",
+        };
+      case "Extreme":
+        return {
+          gradient: "from-red-500 to-purple-600",
+          border: "border-purple-300",
+          shadow: "shadow-purple-500/50",
+        };
+      default:
+        return {
+          gradient: "from-purple-500 to-pink-500",
+          border: "border-purple-300",
+          shadow: "shadow-purple-500/50",
+        };
+    }
+  };
+
+  const difficultyColors = getDifficultyColors();
+
   return (
     <>
       {/* Win Modal */}
@@ -137,7 +174,9 @@ export default function Card({ pokemonCount, difficulty, onBackToMenu }) {
               >
                 ← Back to Menu
               </button>
-              <div className="px-6 py-2.5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl shadow-lg border-2 border-white/20">
+              <div
+                className={`px-6 py-2.5 bg-gradient-to-r ${difficultyColors.gradient} rounded-xl shadow-lg ${difficultyColors.shadow} border-2 ${difficultyColors.border}`}
+              >
                 <p className="text-lg font-bold text-white font-bubble">
                   Difficulty: {difficulty}
                 </p>
